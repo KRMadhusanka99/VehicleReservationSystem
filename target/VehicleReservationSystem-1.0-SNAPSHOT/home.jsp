@@ -26,9 +26,6 @@
             </li>
             <li> <a href="#"> Terms of use </a>
             </li>
-            <li>
-                <a href="#"> Join Us </a>
-            </li>
         </ul>
     </nav>
 </header>

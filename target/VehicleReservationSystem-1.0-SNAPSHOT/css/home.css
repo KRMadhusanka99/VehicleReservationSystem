@@ -1,11 +1,4 @@
-body
-{
-    height: 125vh;
-    margin-top: 80px;
-    padding: 30px;
-    background-size: cover;
-    font-family: sans-serif;
-}
+
 header {
     background-color: orange;
     position: fixed;
@@ -15,7 +8,6 @@ header {
     height: 30px;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 25px 0 black;
 }
 header * {
     display: inline;
