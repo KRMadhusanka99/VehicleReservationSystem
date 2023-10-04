@@ -16,12 +16,12 @@
     <h1>Service Reservation</h1>
     <div class="card">
         <div class="card-body">
-            <form action="<%=request.getContextPath()%>/register" method="post">
+            <form action="/reservation" method="post">
 
                 <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="username"
+                        <input id="username" type="text" class="form-control" name="username"
                                placeholder="Enter username">
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="name"
+                        <input id="name" type="text" class="form-control" name="name"
                                placeholder="Enter your name">
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                 <div class=" form-group row">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-7">
-                        <input type="email" class="form-control" name="email"
+                        <input id="email" type="email" class="form-control" name="email"
                                placeholder="Enter your email">
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                 <div class="form-group row">
                     <label for="contactNumber" class="col-sm-2 col-form-label">Contact Number</label>
                     <div class="col-sm-7">
-                        <input type="tel" class="form-control" name="contactNumber"
+                        <input id="contactNumber" type="tel" class="form-control" name="contactNumber"
                                placeholder="Enter your contact">
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                 <div class="form-group row">
                     <label for="date" class="col-sm-2 col-form-label">Date</label>
                     <div class="col-sm-7">
-                        <input type="date" class="form-control" name="date">
+                        <input id="date" type="date" class="form-control" name="date">
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                             <option value="">Select Time</option>
                             <option value="10">10 AM</option>
                             <option value="11">11 AM</option>
-                            <option value="12">12 AM</option>
+                            <option value="12">12 PM</option>
                         </select>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                 <div class="form-group row">
                     <label for="location" class="col-sm-2 col-form-label">Preferred location</label>
                     <div class="col-sm-7">
-                        <select id="district" class="form-control" name="district">
+                        <select id="location" class="form-control" name="location">
                                 <option value="">Select district</option>
                                 <option value="52">Ampara District</option>
                                 <option value="71">Anuradhapura District</option>
@@ -105,7 +105,7 @@
                 <div class="form-group row">
                     <label for="registrationNumber" class="col-sm-2 col-form-label">Vehicle Registration Number</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" name="registrationNumber"
+                        <input id="registrationNumber"  type="text" class="form-control" name="registrationNumber"
                                placeholder="Enter vehicle registration number">
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                 <div class="form-group row">
                     <label for="currentMileage" class="col-sm-2 col-form-label">Current Mileage</label>
                     <div class="col-sm-7">
-                        <input type="number" class="form-control" name="currentMileage"
+                        <input id="currentMileage" type="number" class="form-control" name="currentMileage"
                                placeholder="Enter current mileage">
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                 <div class="form-group row">
                     <label for="message" class="col-sm-2 col-form-label">Message</label>
                     <div class="col-sm-7">
-                        <textarea type="text" class="form-control" name="message"
+                        <textarea id="message" type="text" class="form-control" name="message"
                                   placeholder="Enter your message"></textarea>
                     </div>
                 </div>

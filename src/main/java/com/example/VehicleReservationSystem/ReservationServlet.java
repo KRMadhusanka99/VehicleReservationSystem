@@ -27,8 +27,8 @@ public class ReservationServlet extends HttpServlet {
         String date = request.getParameter("date");
         String time = request.getParameter("time");
         String location = request.getParameter("location");
-        String vehicle_no = request.getParameter("registration_number");
-        String mileage = request.getParameter("current_mileage");
+        String vehicle_no = request.getParameter("registrationNumber");
+        String mileage = request.getParameter("currentMileage");
         String message = request.getParameter("message");
         String uname = request.getParameter("username");
         RequestDispatcher dispatcher = null;
