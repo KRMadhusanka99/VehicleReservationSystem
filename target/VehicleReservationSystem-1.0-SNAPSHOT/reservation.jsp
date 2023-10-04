@@ -126,8 +126,8 @@
                     </div>
                 </div>
 
-                <button type="submit" onclick="window.location.href=''" class="btn btn-primary">Register</button>
-                <button type="submit" onclick="window.location.src='.home.jsp'" class="btn btn-primary" >Back to home</button>
+                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" <%--onclick="window.location.src='.home.jsp'" --%>class="btn btn-primary" >Back to home</button>
             </form>
         </div>
     </div>
