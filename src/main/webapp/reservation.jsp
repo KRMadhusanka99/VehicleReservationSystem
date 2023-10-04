@@ -62,9 +62,9 @@
                     <div class="col-sm-7">
                         <select id="time" class="form-control" name="time">
                             <option value="">Select Time</option>
-                            <option value="10">10 AM</option>
-                            <option value="11">11 AM</option>
-                            <option value="12">12 PM</option>
+                            <option value="10 AM">10 AM</option>
+                            <option value="11 AM">11 AM</option>
+                            <option value="12 PM">12 PM</option>
                         </select>
                     </div>
                 </div>
@@ -74,30 +74,30 @@
                     <div class="col-sm-7">
                         <select id="location" class="form-control" name="location">
                                 <option value="">Select district</option>
-                                <option value="52">Ampara District</option>
-                                <option value="71">Anuradhapura District</option>
-                                <option value="81">Badulla District</option>
-                                <option value="51">Batticaloa District</option>
-                                <option value="11">Colombo District</option>
-                                <option value="31">Galle District</option>
-                                <option value="12">Gampaha District</option>
-                                <option value="33">Hambantota District</option>
-                                <option value="41">Jaffna District</option>
-                                <option value="13">Kalutara District</option>
-                                <option value="21">Kandy District</option>
-                                <option value="92">Kegalle District</option>
-                                <option value="42">Kilinochchi District</option>
-                                <option value="43">Mannar District</option>
-                                <option value="22">Matale District</option>
-                                <option value="32">Matara District</option>
-                                <option value="82">Monaragala District</option>
-                                <option value="45">Mullaitivu District</option>
-                                <option value="23">Nuwara Eliya District</option>
-                                <option value="72">Polonnaruwa District</option>
-                                <option value="62">Puttalam District</option>
-                                <option value="91">Ratnapura district</option>
-                                <option value="53">Trincomalee District</option>
-                                <option value="44">Vavuniya District</option>
+                                <option value="Ampara">Ampara District</option>
+                                <option value="Anuradhapura">Anuradhapura District</option>
+                                <option value="Badulla">Badulla District</option>
+                                <option value="Batticaloa">Batticaloa District</option>
+                                <option value="Colombo">Colombo District</option>
+                                <option value="Galle">Galle District</option>
+                                <option value="Gampaha">Gampaha District</option>
+                                <option value="Hambantota">Hambantota District</option>
+                                <option value="Jaffna">Jaffna District</option>
+                                <option value="Kalutara">Kalutara District</option>
+                                <option value="Kandy">Kandy District</option>
+                                <option value="Kegalle">Kegalle District</option>
+                                <option value="Kilinochchi">Kilinochchi District</option>
+                                <option value="Mannar">Mannar District</option>
+                                <option value="Matale">Matale District</option>
+                                <option value="Matara">Matara District</option>
+                                <option value="Monaragala">Monaragala District</option>
+                                <option value="Mullaitivu">Mullaitivu District</option>
+                                <option value="Nuwara Eliya ">Nuwara Eliya District</option>
+                                <option value="Polonnaruwa">Polonnaruwa District</option>
+                                <option value="Puttalam">Puttalam District</option>
+                                <option value="Ratnapura">Ratnapura district</option>
+                                <option value="Trincomalee">Trincomalee District</option>
+                                <option value="Vavuniya">Vavuniya District</option>
                         </select>
                     </div>
                 </div>
