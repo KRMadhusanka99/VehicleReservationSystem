@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <link>
-    <title>ReserveYourDriver</title>
+    <title>ReserveYourService</title>
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body>

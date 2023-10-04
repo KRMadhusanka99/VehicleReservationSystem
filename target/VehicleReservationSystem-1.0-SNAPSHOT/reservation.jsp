@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Vehicle Reservation</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
@@ -126,8 +126,8 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Register</button>
-                <button type="submit" class="btn btn-primary" >Back to home</button>
+                <button type="submit" onclick="window.location.href=''" class="btn btn-primary">Register</button>
+                <button type="submit" onclick="window.location.src='.home.jsp'" class="btn btn-primary" >Back to home</button>
             </form>
         </div>
     </div>
