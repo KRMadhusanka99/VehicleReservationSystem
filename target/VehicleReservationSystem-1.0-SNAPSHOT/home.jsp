@@ -51,7 +51,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-4">
-                <h2 class="heading-section">Hello <%=fname%>&nbsp;<%=lname%></h2>
+                    <h2 class="heading-section">Hello <%=fname%>&nbsp;<%=lname%></h2>
+                        <a href="logout?SAML2.HTTPBinding=HTTP-POST" class="form-control btn btn-danger submit px-3" >Log out</a>
                 <img src="images/home.png" alt="">
             </div>
         </div>
