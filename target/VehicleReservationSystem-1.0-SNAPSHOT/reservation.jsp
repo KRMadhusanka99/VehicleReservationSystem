@@ -5,6 +5,24 @@
   Time: 11:46 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="io.asgardeo.java.saml.sdk.util.SSOAgentConstants" %>
+<%@ page import="io.asgardeo.java.saml.sdk.bean.LoggedInSessionBean" %>
+<%@ page import="io.asgardeo.java.saml.sdk.bean.LoggedInSessionBean.SAML2SSO" %>
+<%@ page import="java.util.Map" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    // Retrieve the session bean.
+    LoggedInSessionBean sessionBean = (LoggedInSessionBean) session.getAttribute(SSOAgentConstants.SESSION_BEAN_NAME);
+
+    // SAML response
+    SAML2SSO samlResponse = sessionBean.getSAML2SSO();
+
+    // Autheticated username
+    String subjectId = samlResponse.getSubjectId();
+
+    // Authenticated user's attributes
+    Map<String, String> saml2SSOAttributes = samlResponse.getSubjectAttributes();
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,37 +34,61 @@
     <h1>Service Reservation</h1>
     <div class="card">
         <div class="card-body">
+            <%
+                String username = null;
+                String email = null;
+                String mobile = null;
+                String fname = null;
+                String lname = null;
+                if (saml2SSOAttributes != null) {
+                    for (Map.Entry<String, String> entry : saml2SSOAttributes.entrySet()) {
+                        String attributeName = entry.getKey();
+                        String attributeValue = entry.getValue();
+                        if ("http://wso2.org/claims/username".equals(attributeName)) {
+                            username = attributeValue;
+                        }
+                        else if ("http://wso2.org/claims/emailaddress".equals(attributeName)) {
+                            email = attributeValue;
+                        }
+                        else if ("http://wso2.org/claims/mobile".equals(attributeName)) {
+                            mobile = attributeValue;
+                        }
+                        else if ("http://wso2.org/claims/givenname".equals(attributeName)) {
+                            fname = attributeValue;
+                        }
+                        else if ("http://wso2.org/claims/lastname".equals(attributeName)) {
+                            lname = attributeValue;
+                        }
+                    }
+                }
+            %>
             <form action="reservation" method="post">
 
                 <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
                     <div class="col-sm-7">
-                        <input id="username" type="text" class="form-control" name="username"
-                               placeholder="Enter username">
+                        <input id="username" type="text" class="form-control" name="username" value=<%=username%>>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-7">
-                        <input id="name" type="text" class="form-control" name="name"
-                               placeholder="Enter your name">
+                        <input id="name" type="text" class="form-control" name="name" value=<%=fname%>&nbsp;<%=lname%>>
                     </div>
                 </div>
 
                 <div class=" form-group row">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-7">
-                        <input id="email" type="email" class="form-control" name="email"
-                               placeholder="Enter your email">
+                        <input id="email" type="email" class="form-control" name="email" value=<%=email%>>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="contactNumber" class="col-sm-2 col-form-label">Contact Number</label>
                     <div class="col-sm-7">
-                        <input id="contactNumber" type="tel" class="form-control" name="contactNumber"
-                               placeholder="Enter your contact">
+                        <input id="contactNumber" type="tel" class="form-control" name="contactNumber" value=<%=mobile%>>
                     </div>
                 </div>
 

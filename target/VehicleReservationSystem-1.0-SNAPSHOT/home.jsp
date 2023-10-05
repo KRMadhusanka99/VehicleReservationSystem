@@ -5,6 +5,24 @@
   Time: 8:47 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="io.asgardeo.java.saml.sdk.util.SSOAgentConstants" %>
+<%@ page import="io.asgardeo.java.saml.sdk.bean.LoggedInSessionBean" %>
+<%@ page import="io.asgardeo.java.saml.sdk.bean.LoggedInSessionBean.SAML2SSO" %>
+<%@ page import="java.util.Map" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    // Retrieve the session bean.
+    LoggedInSessionBean sessionBean = (LoggedInSessionBean) session.getAttribute(SSOAgentConstants.SESSION_BEAN_NAME);
+
+    // SAML response
+    SAML2SSO samlResponse = sessionBean.getSAML2SSO();
+
+    // Autheticated username
+    String subjectId = samlResponse.getSubjectId();
+
+    // Authenticated user's attributes
+    Map<String, String> saml2SSOAttributes = samlResponse.getSubjectAttributes();
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <link>
@@ -13,11 +31,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<%
+    String fname = null;
+    String lname = null;
+    if (saml2SSOAttributes != null) {
+        for (Map.Entry<String, String> entry : saml2SSOAttributes.entrySet()) {
+            String attributeName = entry.getKey();
+            String attributeValue = entry.getValue();
+            if ("http://wso2.org/claims/givenname".equals(attributeName)) {
+                fname = attributeValue;
+            }
+            else if ("http://wso2.org/claims/lastname".equals(attributeName)) {
+                lname = attributeValue;
+            }
+        }
+    }
+%>
 <section class="taco-section">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-4">
-                <h2 class="heading-section">Hello  !!</h2>
+                <h2 class="heading-section">Hello <%=fname%>&nbsp;<%=lname%></h2>
                 <img src="images/home.png" alt="">
             </div>
         </div>
