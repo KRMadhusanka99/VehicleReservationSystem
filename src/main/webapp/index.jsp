@@ -21,7 +21,7 @@
                         <h3 class="mb-4 text-center">Reserve Your Service</h3>
                         <form method="post" action="samlsso?SAML2.HTTPBinding=HTTP-POST">
                             <div class="form-group">
-                                <input type="submit" class="form-control btn btn-primary submit px-3" value="Sign In"></input>
+                                <input type="submit" class="form-control btn btn-primary submit px-3" value="Sign In">
                             </div>
                         </form>
                         <div class="social d-flex text-center">

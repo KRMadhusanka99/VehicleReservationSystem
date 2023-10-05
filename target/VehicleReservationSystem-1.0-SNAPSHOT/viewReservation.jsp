@@ -67,7 +67,7 @@
                             </form>
                         </div>
                         <div class="form-group">
-                            <button type="button" onclick="window.location.href=''" class="form-control btn btn-primary submit px-3">Back to home</button>
+                            <a type="button" href="home.jsp" class="form-control btn btn-primary submit px-3">Back to home</a>
 
                         </div>
                     </div>

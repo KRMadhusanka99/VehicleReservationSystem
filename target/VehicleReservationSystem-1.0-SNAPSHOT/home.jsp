@@ -28,7 +28,7 @@
                         <h3 class="mb-4 text-center">Reserve Your Service</h3>
 
                         <div class="form-group">
-                            <button type="button" onclick="window.location.href=''" class="form-control btn btn-primary submit px-3">Make a reservation</button>
+                            <a type="button" href="reservation.jsp" class="form-control btn btn-primary submit px-3">Make a reservation</a>
                         </div>
                         <div class="form-group">
                             <%--<button type="button" onclick="window.location.href=''" class="form-control btn btn-primary submit px-3">View your reservation</button>--%>
@@ -37,7 +37,7 @@
                                 </form>
                         </div>
                         <div class="form-group">
-                            <button type="button" onclick="window.location.href=''" class="form-control btn btn-primary submit px-3">Profile information</button>
+                            <a type="button" href="profile.jsp" class="form-control btn btn-primary submit px-3">Profile information</a>
 
                         </div>
                     </div>
