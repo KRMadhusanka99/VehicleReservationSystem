@@ -19,13 +19,11 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
                         <h3 class="mb-4 text-center">Reserve Your Service</h3>
-
-                        <div class="form-group">
-                            <button type="button" onclick="window.location.href='https://api.asgardeo.io/t/learnmasith/oauth2/authorize?response_type=code&client_id=EGjadG6IuA1nPWue_CiKusnbBu8a&scope=openid%20email%20phone%20profile&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FDriveCareXpress%2Fauthorize.jsp'" class="form-control btn btn-primary submit px-3">Sign In</button>
-
-                        </div>
-
-
+                        <form method="post" action="samlsso?SAML2.HTTPBinding=HTTP-POST">
+                            <div class="form-group">
+                                <input type="submit" class="form-control btn btn-primary submit px-3" value="Sign In"></input>
+                            </div>
+                        </form>
                         <div class="social d-flex text-center">
                             <p class="w-50 text-center">&mdash; Don't have an Account &mdash;</p>
                             <a href="https://console.asgardeo.io/" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Create Account</a>
