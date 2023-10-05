@@ -16,7 +16,7 @@
     <h1>Service Reservation</h1>
     <div class="card">
         <div class="card-body">
-            <form action="/reservation" method="post">
+            <form action="reservation" method="post">
 
                 <div class="form-group row">
                     <label for="username" class="col-sm-2 col-form-label">Username</label>
@@ -60,12 +60,7 @@
                 <div class="form-group row">
                     <label for="time" class="col-sm-2 col-form-label">Preferred time</label>
                     <div class="col-sm-7">
-                        <select id="time" class="form-control" name="time">
-                            <option value="">Select Time</option>
-                            <option value="10 AM">10 AM</option>
-                            <option value="11 AM">11 AM</option>
-                            <option value="12 PM">12 PM</option>
-                        </select>
+                        <input id="time" type="time" class="form-control" name="time">
                     </div>
                 </div>
 
@@ -127,7 +122,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Register</button>
-                <button type="submit" <%--onclick="window.location.src='.home.jsp'" --%>class="btn btn-primary" >Back to home</button>
+                <a href='home.jsp' class="btn btn-primary" >Back to home</a>
             </form>
         </div>
     </div>
