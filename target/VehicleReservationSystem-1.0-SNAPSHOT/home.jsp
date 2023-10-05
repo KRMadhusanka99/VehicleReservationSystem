@@ -28,7 +28,7 @@
                         <h3 class="mb-4 text-center">Reserve Your Service</h3>
 
                         <div class="form-group">
-                            <button type="button" onclick="window.location.href='https://api.asgardeo.io/t/learnmasith/oauth2/authorize?response_type=code&client_id=EGjadG6IuA1nPWue_CiKusnbBu8a&scope=openid%20email%20phone%20profile&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FDriveCareXpress%2Fauthorize.jsp'" class="form-control btn btn-primary submit px-3">Make a reservation</button>
+                            <button type="button" onclick="window.location.href=''" class="form-control btn btn-primary submit px-3">Make a reservation</button>
                         </div>
                         <div class="form-group">
                             <%--<button type="button" onclick="window.location.href=''" class="form-control btn btn-primary submit px-3">View your reservation</button>--%>
@@ -37,7 +37,7 @@
                                 </form>
                         </div>
                         <div class="form-group">
-                            <button type="button" onclick="window.location.href='https://api.asgardeo.io/t/learnmasith/oauth2/authorize?response_type=code&client_id=EGjadG6IuA1nPWue_CiKusnbBu8a&scope=openid%20email%20phone%20profile&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FDriveCareXpress%2Fauthorize.jsp'" class="form-control btn btn-primary submit px-3">Profile information</button>
+                            <button type="button" onclick="window.location.href=''" class="form-control btn btn-primary submit px-3">Profile information</button>
 
                         </div>
                     </div>

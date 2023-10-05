@@ -76,6 +76,11 @@
         </div>
     </div>
 </section>
+<script>
+    function confirmDelete() {
+        return confirm("Are you sure you want to delete this reservation?");
+    }
+</script>
 </body>
 </html>
 
