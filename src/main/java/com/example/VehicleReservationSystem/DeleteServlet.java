@@ -18,16 +18,17 @@ public class DeleteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String bookingid = request.getParameter("bookingID");
+        int booking_id = Integer.parseInt(bookingid);
         RequestDispatcher dispatcher = null;
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://51.132.137.223:3306/isec_assessment2?useSSL=false","isec","EUHHaYAmtzbv");
             //con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/isec_assessment2?useSSL=false","root","mysql");
-            PreparedStatement pst = con.prepareStatement("delete from vehicle_service where booking_id = ?");
+            PreparedStatement pst = con.prepareStatement("DELETE from vehicle_service where booking_id = ?");
             //PreparedStatement pst = con.prepareStatement("insert into vehicle_service(username,email,phone,date,time,location,vehicle_no,mileage,message) values(?,?,?,?,?,?,?,?,?)");
 
-            pst.setString(1, bookingid);
+            pst.setInt(1, booking_id);
 
             int rowCount = pst.executeUpdate();
             dispatcher = request.getRequestDispatcher("viewReservation.jsp");

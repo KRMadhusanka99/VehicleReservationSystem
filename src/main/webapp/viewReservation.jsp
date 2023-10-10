@@ -53,7 +53,7 @@
                                     <td><%= reservation.getMessage() %></td>
                                     <td>
                                         <!-- Add a delete button and a hidden input field to store the reservation ID -->
-                                        <input type="text" name="bookingID" value="<%= reservation.getBookingid() %>">
+                                        <input type="hidden" name="bookingID" value="<%= reservation.getBookingid() %>">
                                         <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete</button>
                                     </td>
                                 </tr>
