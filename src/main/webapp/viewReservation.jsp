@@ -25,7 +25,7 @@
                 <div class="col-md-8 col-lg-10">
                     <div class="login-wrap p-0">
                         <div>
-                            <form action="DeleteReservationServlet" method="post">
+                            <form action="delete" method="post">
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -53,8 +53,8 @@
                                     <td><%= reservation.getMessage() %></td>
                                     <td>
                                         <!-- Add a delete button and a hidden input field to store the reservation ID -->
-                                        <input type="hidden" name="bookingID" value="<%= reservation.getBookingid() %>">
-                                        <button type="submit" class="delete" onclick="return confirmDelete();">Delete</button>
+                                        <input type="text" name="bookingID" value="<%= reservation.getBookingid() %>">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete</button>
                                     </td>
                                 </tr>
                                 <%

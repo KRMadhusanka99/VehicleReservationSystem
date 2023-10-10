@@ -31,21 +31,27 @@ public class ReservationServlet extends HttpServlet {
         String mileage = request.getParameter("currentMileage");
         String message = request.getParameter("message");
         String uname = request.getParameter("username");
+        //String email = request.getParameter("email");
+        //String phone = request.getParameter("contactNumber");
         RequestDispatcher dispatcher = null;
         Connection con = null;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://51.132.137.223:3306/isec_assessment2?useSSL=false","isec","EUHHaYAmtzbv");
-            PreparedStatement pst = con.prepareStatement("insert into vehicle_service(date,time,location,vehicle_no,mileage,message,username) values(?,?,?,?,?,?,?)");
+            //con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/isec_assessment2?useSSL=false","root","mysql");
+            PreparedStatement pst = con.prepareStatement("insert into vehicle_service(username,date,time,location,vehicle_no,mileage,message) values(?,?,?,?,?,?,?)");
+            //PreparedStatement pst = con.prepareStatement("insert into vehicle_service(username,email,phone,date,time,location,vehicle_no,mileage,message) values(?,?,?,?,?,?,?,?,?)");
 
-            pst.setString(1, date);
-            pst.setString(2, time);
-            pst.setString(3, location);
-            pst.setString(4, vehicle_no);
-            pst.setString(5, mileage);
-            pst.setString(6, message);
-            pst.setString(7, uname);
+            pst.setString(2, date);
+            pst.setString(3, time);
+            pst.setString(4, location);
+            pst.setString(5, vehicle_no);
+            pst.setString(6, mileage);
+            pst.setString(7, message);
+            pst.setString(1, uname);
+            //pst.setString(2, email);
+            //pst.setString(3, phone);
 
             int rowCount = pst.executeUpdate();
             dispatcher = request.getRequestDispatcher("reservation.jsp");

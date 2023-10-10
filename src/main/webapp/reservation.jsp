@@ -30,38 +30,39 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<%
+    String username = null;
+    String email = null;
+    String mobile = null;
+    String fname = null;
+    String lname = null;
+    if (saml2SSOAttributes != null) {
+        for (Map.Entry<String, String> entry : saml2SSOAttributes.entrySet()) {
+            String attributeName = entry.getKey();
+            String attributeValue = entry.getValue();
+            if ("http://wso2.org/claims/username".equals(attributeName)) {
+                username = attributeValue;
+            }
+            else if ("http://wso2.org/claims/emailaddress".equals(attributeName)) {
+                email = attributeValue;
+            }
+            else if ("http://wso2.org/claims/mobile".equals(attributeName)) {
+                mobile = attributeValue;
+            }
+            else if ("http://wso2.org/claims/givenname".equals(attributeName)) {
+                fname = attributeValue;
+            }
+            else if ("http://wso2.org/claims/lastname".equals(attributeName)) {
+                lname = attributeValue;
+            }
+        }
+    }
+%>
 <div class="container">
     <h1>Service Reservation</h1>
     <div class="card">
         <div class="card-body">
-            <%
-                String username = null;
-                String email = null;
-                String mobile = null;
-                String fname = null;
-                String lname = null;
-                if (saml2SSOAttributes != null) {
-                    for (Map.Entry<String, String> entry : saml2SSOAttributes.entrySet()) {
-                        String attributeName = entry.getKey();
-                        String attributeValue = entry.getValue();
-                        if ("http://wso2.org/claims/username".equals(attributeName)) {
-                            username = attributeValue;
-                        }
-                        else if ("http://wso2.org/claims/emailaddress".equals(attributeName)) {
-                            email = attributeValue;
-                        }
-                        else if ("http://wso2.org/claims/mobile".equals(attributeName)) {
-                            mobile = attributeValue;
-                        }
-                        else if ("http://wso2.org/claims/givenname".equals(attributeName)) {
-                            fname = attributeValue;
-                        }
-                        else if ("http://wso2.org/claims/lastname".equals(attributeName)) {
-                            lname = attributeValue;
-                        }
-                    }
-                }
-            %>
+
             <form action="reservation" method="post">
 
                 <div class="form-group row">
@@ -163,11 +164,16 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary" onclick="return confirmRegistration();">Register</button>
                 <a href='home.jsp' class="btn btn-primary" >Back to home</a>
             </form>
         </div>
     </div>
 </div>
+<script>
+    function confirmRegistration() {
+        return alert("Service reservation done successfully");
+    }
+</script>
 </body>
 </html>
