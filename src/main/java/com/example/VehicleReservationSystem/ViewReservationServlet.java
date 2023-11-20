@@ -27,7 +27,7 @@ public class ViewReservationServlet  extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://51.132.137.223:3306/isec_assessment2?useSSL=false", "isec", "EUHHaYAmtzbv");
+            con = DriverManager.getConnection("jdbc:mysql://172.187.178.153:3306/isec_assessment2?useSSL=false", "isec", "EUHHaYAmtzbv");
             //con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/isec_assessment2?useSSL=false", "root", "mysql");
 
             // Assuming you have a query to fetch reservations from the database

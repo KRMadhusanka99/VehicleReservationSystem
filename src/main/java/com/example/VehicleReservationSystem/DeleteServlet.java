@@ -23,11 +23,11 @@ public class DeleteServlet extends HttpServlet {
         Connection con = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://51.132.137.223:3306/isec_assessment2?useSSL=false","isec","EUHHaYAmtzbv");
+            con = DriverManager.getConnection("jdbc:mysql://172.187.178.153:3306/isec_assessment2?useSSL=false","isec","EUHHaYAmtzbv");
             //con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/isec_assessment2?useSSL=false","root","mysql");
             PreparedStatement pst = con.prepareStatement("DELETE from vehicle_service where booking_id = ?");
             //PreparedStatement pst = con.prepareStatement("insert into vehicle_service(username,email,phone,date,time,location,vehicle_no,mileage,message) values(?,?,?,?,?,?,?,?,?)");
-
+            System.out.println(bookingid);
             pst.setInt(1, booking_id);
 
             int rowCount = pst.executeUpdate();
