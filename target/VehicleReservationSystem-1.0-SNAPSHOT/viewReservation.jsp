@@ -136,9 +136,6 @@
             <a href="home.jsp"><h3 class="btn" style=" margin-left: 30rem; margin-right: 30rem;">Back to Home</h3></a>
         </div>
     </div>
-    <div class="text">
-        <span>Copyright &copy; 2023 | Pathum Sanjana</span>
-    </div>
 </section>
 
 
