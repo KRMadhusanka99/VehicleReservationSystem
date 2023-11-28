@@ -25,7 +25,7 @@
                 <div class="col-md-8 col-lg-10">
                     <div class="login-wrap p-0">
                         <div>
-                            <form action="delete" method="post">
+
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -52,9 +52,11 @@
                                     <td><%= reservation.getMileage() %></td>
                                     <td><%= reservation.getMessage() %></td>
                                     <td>
+                                        <form action="delete" method="post">
                                         <!-- Add a delete button and a hidden input field to store the reservation ID -->
                                         <input type="hidden" name="bookingID" value="<%=reservation.getBookingid()%>">
                                         <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 <%
@@ -64,7 +66,7 @@
 
                                 </tbody>
                             </table>
-                            </form>
+
                         </div>
                         <div class="form-group">
                             <a type="button" href="home.jsp" class="form-control btn btn-primary submit px-3">Back to home</a>
