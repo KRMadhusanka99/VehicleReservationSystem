@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import io.asgardeo.java.saml.sdk.util.SSOAgentConstants;
+import io.asgardeo.java.saml.sdk.bean.LoggedInSessionBean;
+import io.asgardeo.java.saml.sdk.bean.LoggedInSessionBean.SAML2SSO;
+
 /**
  * Servlet implementation class ReservationServlet
  */
@@ -23,6 +27,19 @@ public class ReservationServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        /*// Retrieve the CSRF token from the session
+        String csrfTokenFromSession = (String) request.getSession().getAttribute("csrfToken");
+
+        // Retrieve the CSRF token from the form submission
+        String csrfTokenFromForm = request.getParameter("csrfToken");
+
+        // Check if the CSRF tokens match
+        if (csrfTokenFromSession == null || csrfTokenFromForm == null || !csrfTokenFromSession.equals(csrfTokenFromForm)) {
+            // CSRF token mismatch, handle the error (you might want to redirect to an error page)
+            response.sendRedirect("error.jsp");
+            return;
+        }*/
 
         String date = request.getParameter("date");
         String time = request.getParameter("time");
@@ -35,6 +52,62 @@ public class ReservationServlet extends HttpServlet {
         //String phone = request.getParameter("contactNumber");
         RequestDispatcher dispatcher = null;
         Connection con = null;
+
+        // Retrieve the session bean.
+        LoggedInSessionBean sessionBean = (LoggedInSessionBean) request.getSession().getAttribute(SSOAgentConstants.SESSION_BEAN_NAME);
+        // SAML response
+        SAML2SSO samlResponse = sessionBean.getSAML2SSO();
+        // Authenticated username
+        String userName = samlResponse.getSubjectId();
+
+        if(date.isEmpty() || time.isEmpty() || location.isEmpty() || vehicle_no.isEmpty() || mileage.isEmpty() || message.isEmpty() || uname.isEmpty()) {
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("reservation.jsp");
+            request.setAttribute("status", "empty");
+            dispatcher1.forward(request, response);
+            return;
+        }
+        if(!uname.equals(userName)){
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("reservation.jsp");
+            request.setAttribute("status", "invaliduser");
+            dispatcher1.forward(request, response);
+            return;
+        }
+        if(!vehicle_no.matches("[A-Z]{2}[0-9]{4}")) {
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("reservation.jsp");
+            request.setAttribute("status", "invalidno");
+            dispatcher1.forward(request, response);
+            return;
+        }
+        if(!mileage.matches("[0-9]+")) {
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("reservation.jsp");
+            request.setAttribute("status", "invalidmileage");
+            dispatcher1.forward(request, response);
+            return;
+        }
+        if(!message.matches("[a-zA-Z0-9 ]+")) {
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("reservation.jsp");
+            request.setAttribute("status", "invalidmessage");
+            dispatcher1.forward(request, response);
+            return;
+        }
+        if(!date.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("reservation.jsp");
+            request.setAttribute("status", "invaliddate");
+            dispatcher1.forward(request, response);
+            return;
+        }
+        if(!time.matches("[0-9]{2}:[0-9]{2}")) {
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("reservation.jsp");
+            request.setAttribute("status", "invalidtime");
+            dispatcher1.forward(request, response);
+            return;
+        }
+        if(!location.matches("[a-zA-Z0-9]+")) {
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("reservation.jsp");
+            request.setAttribute("status", "invalidlocation");
+            dispatcher1.forward(request, response);
+            return;
+        }
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
